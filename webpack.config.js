@@ -1,7 +1,7 @@
 const NODE_ENV = process.env.NODE_ENV;
 const dotenv = require('dotenv');
 const isDev = NODE_ENV === 'development';
-
+const isTest = NODE_ENV === 'test';
 
 const webpack = require('webpack');
 const fs = require('fs');
@@ -95,8 +95,32 @@ config.resolve.alias = {
     'containers': join(src, 'containers'),
     'components': join(src, 'components'),
     'utils': join(src, 'utils'),
-
     'styles': join(src, 'styles')
 }
 //End Roots
+
+
+// Testing
+if (isTest) {
+    config.externals = {
+        'react/addons': true,
+        'react/lib/ReactContext': true,
+        'react/lib/ExecutionEnvironment': true,
+    }
+
+    config.module.noParse = /[/\\]sinon\.js/;
+    config.resolve.alias['sinon'] = 'sinon/pkg/sinon';
+
+    config.plugins = config.plugins.filter((p) => {
+        const name = p.constructor.toString();
+        const fnName = name.match(/^function (.*)\((.*\))/)
+
+        const idx = [
+            'DedupePlugin',
+            'UglifyJsPlugin'
+        ].indexOf(fnName[1]);
+        return idx < 0;
+    })
+}
+// End Testing
 module.exports = config;
