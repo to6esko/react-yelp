@@ -2,6 +2,7 @@
 // Generated on Sat Jun 18 2016 18:21:10 GMT+0300 (FLE Daylight Time)
 var path = require('path');
 var webpackConfig = require('./webpack.config');
+var argv = require('yargs').argv;
 
 module.exports = function(config) {
   config.set({
@@ -77,7 +78,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: !argv.watch,
 
     // Concurrency level
     // how many browser should be started simultaneous
