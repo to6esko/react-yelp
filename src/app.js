@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './styles.module.css';
-import './app.css';
+//import './app.css';
 const App = React.createClass({
   render: function() {
       return (
-          <div className={styles['container']}>
-              Text text text
+          <div className={styles.wrapper}>
+              <h1>Environmet: {__NODE_ENV__}</h1>
           </div>
       );
   }
