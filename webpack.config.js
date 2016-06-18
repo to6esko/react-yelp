@@ -50,7 +50,7 @@ const defines = Object.keys(envVariables)
 
 config.plugins = [new webpack.DefinePlugin(defines)]
     .concat(config.plugins);
-    //End ENV variables
+//End ENV variables
 
 
 
@@ -86,4 +86,17 @@ config.module.loaders.push({
     loader: 'style!css'
 });
 //End CSS modules
+
+
+//Roots
+config.resolve.root = [src, modules]
+config.resolve.alias = {
+    'css': join(src, 'styles'),
+    'containers': join(src, 'containers'),
+    'components': join(src, 'components'),
+    'utils': join(src, 'utils'),
+
+    'styles': join(src, 'styles')
+}
+//End Roots
 module.exports = config;
