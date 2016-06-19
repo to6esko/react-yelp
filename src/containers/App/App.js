@@ -5,8 +5,8 @@ import {Router} from 'react-router';
 
 class App extends React.Component {
     static propTypes = {
-        routes: PropTypes.object.isReqired,
-        history: PropTypes.object.isReqired
+        routes: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
     }
 
     get content() {
