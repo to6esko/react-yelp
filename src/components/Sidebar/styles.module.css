@@ -1,4 +1,5 @@
 @import url("../../styles/base.css");
+@import url("../../styles/colors.css");
 
 .sidebar {
     height: 100%;
@@ -11,7 +12,7 @@
 
     .heading {
         flex: 1;
-        background: #fff;
+        background: var(--white);
         border-bottom: 1px solid #eee;
         padding: 0 10px;
 

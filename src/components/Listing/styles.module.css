@@ -1,3 +1,5 @@
+@import url("../../styles/colors.css");
+
 .container {
     height: 100%;
     overflow: auto;
@@ -8,14 +10,14 @@
 .item {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid var(--item-color);
     padding:10px;
     text-decoration: none;
 
     h1 {
         flex:2;
         &:hover{
-            color:$highlight;
+            color:var(--highlight);
         }
     }
     .rating {
