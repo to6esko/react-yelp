@@ -3,7 +3,7 @@ import Map,{GoogleApiWrapper} from 'google-maps-react';
 import {searchNearby} from 'utils/googleApiHelpers';
 import Header from 'components/Header/Header';
 import styles from './styles.module.css';
-
+import Sidebar from 'components/Sidebar/Sidebar';
 
 class Container extends React.Component{
     constructor(props){
@@ -39,7 +39,10 @@ class Container extends React.Component{
             onReady={this.onReady.bind(this)}
             google={this.props.google}
             visible={false}>
-            <Header/>
+                    <Header/>
+            <Sidebar title={'Restaurants'}
+                        places={this.state.places}
+                        />       
             <div className={styles.content}>
             {this.state.places.map((place)=>{
                 return (<div key={place.id}>{place.name}</div>)

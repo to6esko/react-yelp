@@ -1,6 +1,6 @@
 @import url("../../styles/base.css");
 
-.topbar{
+.topbar {
     position: fixed;
     z-index: 10;
     top: 0;
@@ -12,18 +12,18 @@
     line-height: var(--topbar-height);
     color:#fff;
 
-    a{
-        text-transform: uppercase;
+    a {
+       text-transform: uppercase;
         text-decoration: none;
         letter-spacing: 1px;
         line-height: 40px;
 
-        h1{
+        h1 {
             font-size: 28px;
         }
     }
 
-    section{
+    section {
         position: absolute;
         top: 0px;
         right:  25px;
